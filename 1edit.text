@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <style>
+    body {
+      margin: 50px 400px 50px 130px; }
+            
+    img {
+    position: absolute;
+    left: 100px;
+    top: 0px;
+     z-index: -1;
+}
+
+    p {
+      color: white;
+    }
+
+    h3 {
+       
+      text-decoration: underline;  
+       font-style: italic;
+      font-size: 70px;
+      color:white;
+    }
+     
+    h4 {
+      margin: 8px 0;
+      color:white;
+      font-style: italic;
+       font-size: 30px;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=tel],
+    input[type=password] {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+
+    button,
+    input[type=reset],
+    input[type=submit]
+    {
+      width: 30%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      background-color: #f44336;
+
+    }
+
+    a:link,
+    a:visited {
+      background-color: #f44336;
+      color: ;
+      padding: 14px 25px;
+      text-align: center;
+      width: 20%;
+      display: inline-block;
+    }
+    
+  @media only screen and (max-width: 700px) {
+	  /* this programer response the mobile phone at width 320px */
+    body{
+    
+       margin: auto; }
+            
+    img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+     z-index: -1;
+}
+	   button,
+    input[type=reset],
+    input[type=submit]
+    {
+      width: 30%;
+ margin: 0px 0;
+    }
+     
+  </style>
+
+
+
+
+  <script>
+    function myfunc() {
+
+      var password = document.myform.password.value;
+      var x = password.charAt(0);
+      var i = 1;
+
+
+      if (password.length != 8) {
+        alert("Password must be 8 characters long.");
+        return false;
+      }  else if (Number(x)) {
+
+        alert("Password must start with uppercase character!.");
+        return false;
+      }   
+      
+      
+
+
+      for (i = 1; i < 8; i++) {
+        if (Number(password.charAt(i))) {
+          break;
+        } else if (i === 7) {
+          alert("Password must include one digit at least!.");
+        }
+      }
+           
+
+      let special = password.match((/[!@#$%^&*_]+/g));
+      if (special === null) {
+
+        alert(" Password must  contain special characters like : ! @ # $ % ^ & * _ ");
+        return false;
+      } 
+       
+         if(  password.indexOf(' ') >=0 ){
+           alert(" password must not contain spaces...");
+            return false;
+         } 
+          
+        
+        var tel = document.myform.tel.value;
+        
+        if(isNaN(tel)){
+          
+          alert(" telephone must contain numbers only....");
+          
+       return false;}
+		let  upper = password.match((/[A-Z]+/g));
+  if (upper === null) {
+    alert("Password must start with uppercase character!...");
+	  return false;
+  }
+        
+      
+    }
+  </script>
+
+
+
+
+</head>
+
+<body>
+  <img src="4444.jpg" style="height: 1300px;">
+  
+  <h3> Please , fill this form to enter the website... </h3>
+    
+  <form name="myform" method="post" action="ind.html" onsubmit="return myfunc()" required>
+
+    <h4> <label>First Name:</label></h4>
+    <input type="text" required>
+    <h4> <label>Last Name:</label> </h4>
+    <input type="text" required>
+    <h4> <label> E-mail: </lable>
+    </h4>
+    <input type="email" required>
+    <h4><label> Password: </label></h4>
+    <input type="password" name="password" required>
+    <h4>
+      <lable> Mobile phone Number: </lable>
+    </h4>
+    <input type="tel" name="tel" required>
+
+    <h4> <label>address:</label></h4>
+    <input type="text" required>
+    <h4>
+      <lable>your Gender: </lable>
+    </h4>
+    <p>
+      <input type="radio" name="gender" value="male" required>
+      Male
+      <input type="radio" name="gender" value="female" required>
+      Female
+      <input type="radio" name="gender" value="other" required>
+      Other
+    </p>
+    <input type="submit" value="sign in">
+    <input type="reset">
+  </form>
+</body></html>
